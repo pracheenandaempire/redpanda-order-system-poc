@@ -6,7 +6,7 @@ import logging_config
 
 class OrderConsumer:
     def __init__(self, brokers="localhost:9092", topic="orders", group_id="demo-group"):
-         """
+        """
         Initialize an OrderConsumer instance
         """
         self.consumer = KafkaConsumer(

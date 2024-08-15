@@ -119,3 +119,26 @@ services:
       - 8080:8080
     depends_on:
       - redpanda-0
+  producer:
+      build:
+        context: .
+        dockerfile: Dockerfile.producer
+      container_name: producer
+      networks:
+        - redpanda_network
+      depends_on:
+        - redpanda-0
+      environment:
+        KAFKA_BROKER: redpanda-0:9092
+  consumer:
+      build:
+        context: .
+        dockerfile: Dockerfile.consumer
+      container_name: consumer
+      networks:
+        - redpanda_network
+      depends_on:
+        - redpanda-0
+        - producer
+      environment:
+        KAFKA_BROKER: redpanda-0:9092

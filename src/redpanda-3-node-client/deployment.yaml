@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redpanda-poc-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: redpanda-poc
+  template:
+    metadata:
+      labels:
+        app: redpanda-poc
+    spec:
+      containers:
+      - name: redpanda-poc
+        image: <your-username>/my-app:1.0
+        ports:
+        - containerPort: 8080
