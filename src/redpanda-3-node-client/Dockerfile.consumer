@@ -10,6 +10,7 @@ COPY logging_config.py .
 COPY admin.py .
 COPY utils.py .
 COPY requirements.txt .
+COPY db/ db/
 
 # Install any necessary dependencies
 RUN pip install --no-cache-dir -r requirements.txt
