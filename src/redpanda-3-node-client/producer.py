@@ -56,8 +56,8 @@ if __name__ == "__main__":
   logging_config.configure_logging()
   
   topic = "orders"
-  bootstrap_servers = ["localhost:19092", "localhost:29092", "localhost:39092",]
-  
+  bootstrap_servers = ["redpanda-0:19092", "redpanda-1:29092", "redpanda-2:39092",]
+  logging.info(f"{bootstrap_servers}")
   admin = OrderAdmin(bootstrap_servers)
   producer = OrderProducer(bootstrap_servers, topic)
   admin.create_topic(topic)
