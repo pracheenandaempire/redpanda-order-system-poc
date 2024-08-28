@@ -8,3 +8,11 @@ k8s_yaml('./consumer-deployment.yaml')
 k8s_yaml('./redpanda-0-deployment.yaml')
 k8s_yaml('./redpanda-1-deployment.yaml')
 k8s_yaml('./redpanda-2-deployment.yaml')
+
+k8s_yaml('./redpanda-0-service.yaml')
+k8s_yaml('./redpanda-1-service.yaml')
+k8s_yaml('./redpanda-2-service.yaml')
+
+k8s_yaml('./redpanda-0-persistentvolumeclaim.yaml')
+k8s_yaml('./redpanda-1-persistentvolumeclaim.yaml')
+k8s_yaml('./redpanda-2-persistentvolumeclaim.yaml')
