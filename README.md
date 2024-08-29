@@ -27,19 +27,15 @@ The structure and files in the `redpanda-3-node-client` directory are identical 
 
 ## Getting Started
 
-To get started with either the single-node or three-node RedPanda Kafka clients, follow these steps:
+### redpanda-1-node-client
 
-### Installation
+To get started with the single-node RedPanda client:
 
-First, install the required Python packages:
+1. First, install the required Python packages:
 
 ```bash
 pip install -r requirements.txt
 ```
-
-### Running the Clients
-
-1. Choose the directory for the RedPanda cluster size you want to work with (redpanda-1-node-client for a single-node cluster or redpanda-3-node-client for a three-node cluster).
 
 2. Navigate to the project directory:
 
@@ -64,3 +60,35 @@ python producer.py
 ```
 python consumer.py
 ```
+
+### redpanda-3-node-client
+
+
+To get started with the single-node RedPanda client:
+
+1. First, install the required Python packages:
+
+```bash
+pip install -r requirements.txt
+```
+
+2. Navigate to the project directory:
+
+```bash
+cd redpanda-3-node-client  # or redpanda-3-node-client
+```
+
+3. To use docker-compose tool to build and deploy, change Tiltfile to look like this and run `tilt up`:
+
+```
+docker_build('producer', context='.', dockerfile='Dockerfile.producer')
+docker_build('consumer', context='.', dockerfile='Dockerfile.consumer')
+
+docker_compose('docker-compose.yml')
+```
+
+The current version uses Kubernetes, so simply run `tilt up`. 
+
+Note: 
+There is an error with using Tilt and Kubernetes that we have not been able to resolve:
+`Failure during startup: std::runtime_error (vectorized internal rpc protocol - Error attempting to listen on {://10.105.137.128:33145:PLAINTEXT}: std::__1::system_error (error system:99, posix_listen failed for address 10.105.137.128:33145: Cannot assign requested address))`. 
